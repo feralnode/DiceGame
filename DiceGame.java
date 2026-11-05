@@ -6,6 +6,7 @@ public class DiceGame {
 
         System.out.println("""
             Hej och välkommen till tärningsspelet!
+            Spelreglerna är enkla: Du kommer att gissa vilket nummer tärningen kommer att visa när den kastas. Om du gissar rätt, får du poäng. Om du gissar fel, får du inga poäng. Spelet fortsätter i ett antal rundor som du väljer.
             Min första fråga är, vad heter du?
             """);
         
@@ -26,11 +27,20 @@ public class DiceGame {
         System.out.println("Du har nu en tärning med " + player.die.diceSides + " sidor. Låt oss börja spela!");
 
         // We need to be able to handle what the player guess for number the die will roll.
-        /*for (byte i = 0; i <= numberOfRounds; i++) {
-            System.out.println("Runda " + (i + 1) + ":");
+        for (byte i = 1; i <= numberOfRounds; i++) {
+            System.out.println("Runda " + i + ": Gissa vilket nummer tärningen kommer att visa (1-" + numberOfSides + "):");
+            byte playerGuess = input.nextByte();
             player.die.roll();
-            player.increaseScore();
+            if (playerGuess == player.getDieValue()) {
+                System.out.println("Grattis! Du gissade rätt!");
+                player.increaseScore();
+            } else {
+                System.out.println("Tyvärr, du gissade fel. Tärningen visade " + player.getDieValue() + ".");
+            }
+            System.out.println("Tryck på Enter för att fortsätta till nästa runda.");
             System.console().readLine(); // Wait for user input to continue to the next round
-        }*/
+        }
+
+        input.close();
     }
 }

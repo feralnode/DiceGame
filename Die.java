@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class Die {
 
-    byte currentValueofDie;
+    byte currentValueOfDie;
 
     byte diceSides;
     
@@ -13,12 +13,12 @@ public class Die {
     private Random random = new Random();
 
     public int getDie() {
-        return currentValueofDie;
+        return currentValueOfDie;
     }
 
     public void roll() {
-        currentValueofDie = (byte) (random.nextInt(diceSides) + 1);
-        System.out.println("You rolled a " + currentValueofDie);
+        currentValueOfDie = (byte) (random.nextInt(diceSides) + 1);
+        System.out.println("You rolled a " + currentValueOfDie);
     }
 
 }
