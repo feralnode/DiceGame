@@ -7,5 +7,15 @@ public class Player {
         this.name = name;
     }
 
+    public int getDieValue() {
+        return die.getDie();
+    }
 
+    public void increaseScore() {
+        //Should use setPoint() method to increase the score
+    }
+
+    public void addDie(byte numberOfSides) {
+        die = new Die(numberOfSides);
+    }
 }
