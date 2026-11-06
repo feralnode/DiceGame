@@ -24,23 +24,33 @@ public class DiceGame {
         byte numberOfSides = input.nextByte();
         player.addDie(numberOfSides);
 
-        System.out.println("Du har nu en tärning med " + player.die.diceSides + " sidor. Låt oss börja spela!");
+        System.out.println("Du har nu en tärning med " + numberOfSides + " sidor. Låt oss börja spela!");
 
-        // We need to be able to handle what the player guess for number the die will roll.
+        numberOfRoundsToPlay(numberOfRounds, player, numberOfSides);
+
+        input.close();
+    }
+
+    static void numberOfRoundsToPlay(byte numberOfRounds, Player player, byte numberOfSides) {
+
+        Scanner input = new Scanner(System.in);
+
         for (byte i = 1; i <= numberOfRounds; i++) {
             System.out.println("Runda " + i + ": Gissa vilket nummer tärningen kommer att visa (1-" + numberOfSides + "):");
             byte playerGuess = input.nextByte();
-            player.die.roll();
+            // Roll the die by using players rollDice method.
+
             if (playerGuess == player.getDieValue()) {
                 System.out.println("Grattis! Du gissade rätt!");
                 player.increaseScore();
             } else {
                 System.out.println("Tyvärr, du gissade fel. Tärningen visade " + player.getDieValue() + ".");
             }
+
             System.out.println("Tryck på Enter för att fortsätta till nästa runda.");
             System.console().readLine(); // Wait for user input to continue to the next round
         }
-
+        
         input.close();
     }
 }

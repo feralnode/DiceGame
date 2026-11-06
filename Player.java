@@ -1,14 +1,16 @@
 public class Player {
     private String name;
     private byte point = 0;
-    Die die;
+    private Die die;
 
     public Player(String name) {
         this.name = name;
     }
 
-    public int getDieValue() {
-        return die.getDie();
+    // The rollDice method should use the roll() method.
+
+    public byte getDieValue() {
+        return die.getCurrentDieValue();
     }
 
     public void increaseScore() {
