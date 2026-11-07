@@ -5,9 +5,15 @@ public class DiceGame {
         Scanner input = new Scanner(System.in);
 
         System.out.println("""
-            Hej och välkommen till tärningsspelet!
-            Spelreglerna är enkla: Du kommer att gissa vilket nummer tärningen kommer att visa när den kastas. Om du gissar rätt, får du poäng. Om du gissar fel, får du inga poäng. Spelet fortsätter i ett antal rundor som du väljer.
-            Min första fråga är, vad heter du?
+            Hej och välkommen till Dice Game of Doom!
+
+            Regler: \n
+
+            Du får gissa vilket nummer tärningen landar på. Gissa rätt = poäng. Gissa fel = du får se vad som händer. \n
+
+            Spelet fortsätter i ett antal rundor som du väljer. \n
+
+            Vad heter du?
             """);
         
         String playerName = input.next();
@@ -41,10 +47,10 @@ public class DiceGame {
             // Roll the die by using players rollDice method.
 
             if (playerGuess == player.getDieValue()) {
-                System.out.println("Grattis! Du gissade rätt!");
+                System.out.println("Grattis! Du gissade rätt! Du får extra kosmiska krafter som skyddar dig från felande kod och buggar i framtiden.");
                 player.increaseScore();
             } else {
-                System.out.println("Tyvärr, du gissade fel. Tärningen visade " + player.getDieValue() + ".");
+                System.out.println("Tyvärr, du gissade fel. Tärningen visade " + player.getDieValue() + ". Get good, noob.");
             }
 
             System.out.println("Tryck på Enter för att fortsätta till nästa runda.");
