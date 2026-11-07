@@ -14,10 +14,27 @@ public class Player {
     }
 
     public void increaseScore() {
-        //Should use setPoint() method to increase the score
+        setPoint((byte) 1);
     }
 
     public void addDie(byte numberOfSides) {
         die = new Die(numberOfSides);
     }
+
+    public void rollDice() {
+        die.roll();
+    }
+    
+    public String getName() {
+    return name;
+    }
+
+    public byte getScore() {
+    return point;
+    }
+
+    public void setPoint(byte point) {
+    this.point += point;
+    }
+    
 }
