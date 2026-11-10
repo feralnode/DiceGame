@@ -8,6 +8,21 @@ public class Player {
         this.name = name;
     }
 
+      // Returns the player's name.
+    public String getName() {
+        return name;
+    }
+
+    // Returns the player's score.
+    public byte getScore() {
+        return point;
+    }
+
+    // Adds points to the player's current score.
+    public void setPoint(byte point) {
+        this.point += point;
+    }
+
     // Returns the current die value.
     public byte getDieValue() {
         return die.getCurrentDieValue();
@@ -26,20 +41,5 @@ public class Player {
     // Rolls the player's die.
     public void rollDice() {
         die.roll();
-    }
-
-    // Returns the player's name.
-    public String getName() {
-        return name;
-    }
-
-    // Returns the player's score.
-    public byte getScore() {
-        return point;
-    }
-
-    // Adds points to the player's current score.
-    public void setPoint(byte point) {
-        this.point += point;
     }
 }

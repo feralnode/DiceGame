@@ -7,11 +7,9 @@ public class DiceGame {
         System.out.println("""
             Hej och välkommen till Dice Game of Doom!
 
-            Regler: \n
-
-            Du får gissa vilket nummer tärningen landar på. Gissa rätt = poäng. Gissa fel = du får se vad som händer. \n
-
-            Spelet fortsätter i ett antal rundor som du väljer. \n
+            Regler:
+            Du får gissa vilket nummer tärningen landar på. Gissa rätt = poäng. Gissa fel = du får se vad som händer.
+            Spelet fortsätter i ett antal rundor som du väljer.
 
             Vad heter du?
             """);
@@ -21,18 +19,22 @@ public class DiceGame {
         Player player = new Player(playerName);
 
         // Change this to player.getName()
-        System.out.println("Hej " + playerName + "! Hur många rundor vill du spela?");
+        System.out.println("Hej " + player.getName() + "! Hur många rundor vill du spela?");
 
         byte numberOfRounds = input.nextByte();
 
+        // Should have a check to make sure the number of rounds is greater than 0 and it is not a string
         System.out.println("Du vill spela " + numberOfRounds + " rundor. Hur många sidor vill du att tärningen ska ha?");
 
+        // Should have a check to make sure the number of sides is greater than 0 and it is not a string
         byte numberOfSides = input.nextByte();
         player.addDie(numberOfSides);
 
         System.out.println("Du har nu en tärning med " + numberOfSides + " sidor. Låt oss börja spela!");
 
         numberOfRoundsToPlay(numberOfRounds, player, numberOfSides);
+
+        System.out.println("Spelet är slut! Du fick " + player.getScore() + " poäng. Tack för att du spelade!");
 
         input.close();
     }
@@ -45,10 +47,10 @@ public class DiceGame {
             System.out.println("Runda " + i + ": Gissa vilket nummer tärningen kommer att visa (1-" + numberOfSides + "):");
             byte playerGuess = input.nextByte();
             // Roll the die by using players rollDice method.
-
+            player.rollDice();
             if (playerGuess == player.getDieValue()) {
-                System.out.println("Grattis! Du gissade rätt! Du får extra kosmiska krafter som skyddar dig från felande kod och buggar i framtiden.");
                 player.increaseScore();
+                System.out.println("Grattis! Du gissade rätt! Du får extra kosmiska krafter som skyddar dig från felande kod och buggar i framtiden. Du har nu " + player.getScore() + " poäng.");
             } else {
                 System.out.println("Tyvärr, du gissade fel. Tärningen visade " + player.getDieValue() + ". Get good, noob.");
             }
