@@ -106,8 +106,7 @@ public class DiceGame {
 
             if (i < numberOfRounds) {
                 System.out.println("Tryck på Enter för att fortsätta till nästa runda.");
-                input.nextLine(); // Consume leftover newline
-                input.nextLine(); // Wait for user input to continue
+                System.console().readLine(); // Wait for the user to press Enter before continuing
             }
         }
     }
