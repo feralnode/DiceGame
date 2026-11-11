@@ -17,7 +17,7 @@ public class Die {
     // Method to roll the die and get a random value between 1 and the number of sides and add it to the currentValueOfDie
     public void roll() {
         currentValueOfDie = (byte) (random.nextInt(diceSides) + 1);
-        System.out.println("You rolled a " + currentValueOfDie);
+        System.out.println("Du rullade tärningen och fick " + currentValueOfDie);
     }
 
 }

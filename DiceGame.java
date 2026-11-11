@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class DiceGame {
@@ -50,11 +49,11 @@ public class DiceGame {
             if (input.hasNextByte()) {
                 numberOfSides = input.nextByte();
 
-                if (numberOfSides > 0) {
+                if (numberOfSides > 1) {
                     break;
                 }
 
-                System.out.println("Antalet rundor måste vara större än 0.");
+                System.out.println("Antalet sidor måste vara större än 1.");
             } else {
                 System.out.println("Du måste ange ett heltal.");
                 input.next(); // Discard invalid input
